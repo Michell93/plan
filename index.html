@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Planilha de Gastos Mensais</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      #graficoPizza,
+      #graficoLinha {
+        margin: auto;
+      }
+    </style>
+    <!-- Google Charts -->
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>💰 Controle de Gastos</h1>
+
+      <!-- Seletor de mês -->
+      <div class="mes-selector">
+        <label for="mes">Selecione o mês:</label>
+        <select id="mes" onchange="trocarMes(this.value)">
+          <option value="janeiro">Janeiro</option>
+          <option value="fevereiro">Fevereiro</option>
+          <option value="marco">Março</option>
+          <option value="abril">Abril</option>
+          <option value="maio">Maio</option>
+          <option value="junho">Junho</option>
+          <option value="julho">Julho</option>
+          <option value="agosto">Agosto</option>
+          <option value="setembro">Setembro</option>
+          <option value="outubro">Outubro</option>
+          <option value="novembro">Novembro</option>
+          <option value="dezembro">Dezembro</option>
+        </select>
+      </div>
+
+      <!-- Formulário -->
+      <form id="formLancamento">
+        <input type="date" id="data" required />
+        <select id="tipo">
+          <option value="Entrada">Entrada</option>
+          <option value="Saída">Saída</option>
+        </select>
+        <select id="categoria" required>
+          <option value="salario">Salário</option>
+          <option value="conta">Conta</option>
+          <option value="lazer">Lazer</option>
+          <option value="entretenimento">Entretenimento</option>
+          <option value="transporte">Transporte</option>
+          <option value="alimentacao">Alimentação</option>
+          <option value="outros">Outros</option>
+        </select>
+        <input type="text" id="descricao" placeholder="Descrição" required />
+        <input type="number" id="valor" placeholder="Valor (R$)" required />
+        <button type="submit" class="btn-add">➕ Adicionar Lançamento</button>
+      </form>
+
+      <!-- Filtro -->
+      <div class="filtro-padrao">
+        <label for="campoFiltro">Filtrar por:</label>
+        <select id="campoFiltro">
+          <option value="data">Data</option>
+          <option value="tipo">Tipo</option>
+          <option value="categoria">Categoria</option>
+          <option value="descricao">Descrição</option>
+          <option value="valor">Valor</option>
+        </select>
+        <select id="valorFiltro">
+          <option value="">Todos</option>
+        </select>
+      </div>
+
+      <!-- Tabela -->
+      <div class="tabela-container">
+        <table id="tabela">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Tipo</th>
+              <th>Categoria</th>
+              <th>Descrição</th>
+              <th>Valor (R$)</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="lancamentos"></tbody>
+        </table>
+      </div>
+
+      <!-- Resumo -->
+      <div id="resumo">
+        <h2 id="mesResumo">Resumo de Janeiro</h2>
+        <div class="card entradas">
+          Entradas: R$ <span id="entradas">0</span>
+        </div>
+        <div class="card saidas">Saídas: R$ <span id="saidas">0</span></div>
+        <div class="card saldo">Saldo: R$ <span id="saldo">0</span></div>
+      </div>
+
+      <!-- Tabela resumo -->
+      <div class="tabela-container">
+        <table id="tabelaResumo">
+          <thead>
+            <tr>
+              <th>Categoria</th>
+              <th>Total (R$)</th>
+            </tr>
+          </thead>
+          <tbody id="linhasResumo"></tbody>
+        </table>
+      </div>
+
+      <!-- Gráficos abaixo -->
+      <div class="graficos">
+        <div id="graficoPizza"></div>
+        <div id="graficoLinha"></div>
+      </div>
+    </div>
+
+    <!-- Seu script principal -->
+    <script src="script.js"></script>
+
+    <script>
+      // Inicializa Google Charts
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(() => {
+        document.getElementById("mes").value = "janeiro";
+        atualizarTabela(); // inicializa os gráficos
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,275 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo geral */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #f4f6f9, #e9ecef);
+  color: #333;
+  line-height: 1.6;
+  transition:
+    background 0.5s ease,
+    color 0.5s ease;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 25px;
+  min-height: 100vh;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Seletor de mês */
+.mes-selector {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mes-selector select {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+form input,
+form select {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+form input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #fff;
+  color: #333;
+}
+
+/* Botão estiloso de adicionar lançamento */
+.btn-add {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition:
+    transform 0.2s ease,
+    background 0.3s ease;
+}
+.btn-add:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0056b3, #003f7f);
+}
+
+/* Filtro padrão */
+.filtro-padrao {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.filtro-padrao select {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+/* Tabela */
+.tabela-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 14px;
+  text-align: center;
+}
+
+table th {
+  background: #007bff;
+  color: #fff;
+  font-weight: 600;
+}
+
+table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+table tr:hover {
+  background: #eef6ff;
+}
+
+/* Botão de exclusão */
+.btn-excluir {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.btn-excluir:hover {
+  background: #a71d2a;
+}
+
+/* Resumo financeiro */
+#resumo {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#resumo h2 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#resumo .card {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* Cores específicas por categoria */
+.card.entradas {
+  background: #28a745;
+}
+.card.saidas {
+  background: #dc3545;
+}
+.card.saldo {
+  background: #007bff;
+}
+.card.salario {
+  background: #28a745;
+}
+.card.conta {
+  background: #dc3545;
+}
+.card.lazer {
+  background: #ff9f40;
+}
+.card.entretenimento {
+  background: #9966ff;
+}
+.card.transporte {
+  background: #36a2eb;
+}
+.card.alimentacao {
+  background: #ffc107;
+  color: #333;
+}
+.card.outros {
+  background: #004d00;
+}
+
+/* Gráficos */
+.graficos {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.graficos canvas {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+/* Pizza sempre redondo */
+#graficoPizza {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 400px;
+  height: 400px;
+}
+
+/* Linha com altura fixa */
+#graficoLinha {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+}
+
+/* Tema escuro */
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+body.dark .container {
+  background: #1e1e1e;
+}
+body.dark h1 {
+  color: #66b2ff;
+}
+body.dark table th {
+  background: #333;
+}
+body.dark table td {
+  background: #222;
+  color: #eee;
+}
+body.dark #graficoPizza,
+body.dark #graficoLinha {
+  background: #1e1e1e;
+}
+body.dark .btn-add {
+  background: linear-gradient(135deg, #1565c0, #0d47a1);
+}
+body.dark .btn-add:hover {
+  background: linear-gradient(135deg, #0d47a1, #00264d);
+}
